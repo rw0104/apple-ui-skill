@@ -1,0 +1,29 @@
+name: 商业授权申请 / Commercial authorization
+description: 申请单独的书面商业授权；提交申请本身不代表已授权。
+title: "[Commercial authorization] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        当前默认许可为 PolyForm Noncommercial 1.0.0。
+        请说明用途；申请和回复确认都不自动构成商业授权。
+        Issue 为公开内容，请勿填写密钥、内部客户资料或其他保密信息。
+  - type: input
+    id: applicant
+    attributes:
+      label: 申请人 / 组织名称
+    validations:
+      required: true
+  - type: textarea
+    id: use_case
+    attributes:
+      label: 计划用途及范围
+      description: 说明用于什么产品/服务、团队规模，以及是否需要对外再分发。
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 使用的版本
+      placeholder: 2.0.0-dev.5
