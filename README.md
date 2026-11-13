@@ -20,7 +20,7 @@
 Windows PowerShell：
 
 ```powershell
-irm https://raw.githubusercontent.com/rw0104/apple-ui-skill/main/install.ps1 | iex
+irm 'https://raw.githubusercontent.com/rw0104/apple-ui-skill/main/install.ps1?v=2.0.0-dev.5-1' | iex
 ```
 
 macOS / Linux：
