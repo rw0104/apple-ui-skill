@@ -37,7 +37,8 @@ class InstallerTests(unittest.TestCase):
     def setUp(self):
         self.directory = tempfile.TemporaryDirectory(prefix="skill installer test ")
         self.addCleanup(self.directory.cleanup)
-        self.root = Path(self.directory.name)
+        # Windows hosted runners can expose TEMP through an 8.3 alias.
+        self.root = Path(self.directory.name).resolve()
         self.destination = self.root / "skills/apple-ui-skill"
         self.data = payload()
         self.manifest = release(self.data)

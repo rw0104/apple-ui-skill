@@ -17,12 +17,15 @@ $pythonPrefix = @()
 foreach ($candidate in @('py', 'python3', 'python')) {
     $resolved = Get-Command $candidate -ErrorAction SilentlyContinue | Select-Object -First 1
     if (!$resolved) { continue }
-    $prefix = if ($candidate -eq 'py') { @('-3') } else { @() }
+    # Keep even a single launcher flag as an array: PowerShell unwraps the
+    # output of an if expression and scalar splatting can invoke Python stdin.
+    [string[]]$prefix = @()
+    if ($candidate -eq 'py') { $prefix = @('-3') }
     try {
         & $resolved.Source @prefix -c 'import sys; sys.exit(0 if sys.version_info >= (3, 10) else 1)' 2>$null
         if ($LASTEXITCODE -eq 0) {
             $pythonCommand = $resolved.Source
-            $pythonPrefix = $prefix
+            $pythonPrefix = @($prefix)
             break
         }
     } catch { }

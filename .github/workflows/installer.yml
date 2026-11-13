@@ -20,3 +20,7 @@ jobs:
           python-version: ${{ matrix.python }}
       - name: Test isolated install and recovery behavior
         run: python -B -m unittest -v test_installer
+      - name: Verify native Windows bootstrap arguments
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: ./test_bootstrap.ps1
