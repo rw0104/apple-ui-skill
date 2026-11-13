@@ -24,6 +24,3 @@ Apple and other platform names identify design sources; this is an independent
 project with no claimed endorsement. Original Apple artwork, videos, fonts and
 third-party design files are not included. Optional browser and framework
 dependencies are installed separately under their respective licenses.
-
-Private development history, internal planning, evaluation fixtures/reports and
-study media are not part of the shared runtime package.
